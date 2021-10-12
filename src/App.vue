@@ -42,7 +42,7 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 :root {
   --primary: #007ac1;
   --secondary: #003a5b;
@@ -79,7 +79,39 @@ hr {
   border-top: 1px solid #ddd;
   margin: 10px 0;
 }
+input:focus{
+  outline: 1px solid var(--primary);
+}
 .v-main {
   background-color: var(--white);
+}
+.regular-price {
+  font-size: 0.9rem;
+  color: #8e8e8e;
+  display: inline-block;
+}
+.price-container {
+  line-height: 1;
+  margin-top: 0;
+  &__regular-price {
+    font-size: 0.9rem;
+    color: #8e8e8e;
+    display: inline-block;
+    line-height: 1.5;
+  }
+  &__discounted-price {
+    font-size: 1.1rem;
+    font-weight: 400;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1.3;
+    margin-right: 5px;
+  }
+  &__discount {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #35a3a8;
+    vertical-align: middle;
+  }
 }
 </style>

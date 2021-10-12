@@ -17,13 +17,13 @@
         ></v-img>
       </v-flex>
       <v-flex
-        xs3
+        xs4
         sm4
         lg1
         md2
         class="d-flex align-center justify-center justify-lg-start mb-lg-0 mb-md-0 mb-2"
       >
-        <menu-component></menu-component>
+        <Menu />
       </v-flex>
       <v-flex
         xs6
@@ -35,7 +35,7 @@
         <search-field></search-field>
       </v-flex>
       <v-flex
-        xs6
+        xs4
         sm4
         lg2
         md3
@@ -50,16 +50,13 @@
         </v-btn>
       </v-flex>
       <v-flex
-        xs3
+        xs4
         sm4
         lg1
         md1
         class="d-flex align-center justify-center  mb-lg-0 mb-md-0 mb-2"
       >
-        <v-btn text small color="white" @click="actionOpenDropdown('cart')">
-          <v-icon>shopping_cart</v-icon>
-          $12.998
-        </v-btn>
+        <cart-icon />
       </v-flex>
       <v-flex xs12 class="d-lg-none d-md-none d-sm-flex" elavtion="10">
         <search-field></search-field>
@@ -69,22 +66,17 @@
 </template>
 <script>
 import SearchField from "../molecules/Search-Field.vue";
-import MenuComponent from "../molecules/Menu.vue";
+import Menu from "../molecules/Menu.vue";
+import CartIcon from "../molecules/Cart-Icon.vue";
 import { mapActions } from "vuex";
 export default {
   components: {
     SearchField,
-    MenuComponent,
+    Menu,
+    CartIcon,
   },
   methods: {
     ...mapActions(["actionOpenDropdown"]),
   },
 };
 </script>
-<style>
-/* header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-} */
-</style>

@@ -13,7 +13,13 @@
         opening_from_left: openingAnimationFrom === 'left',
       }"
     >
-      <v-btn fab  small color="primary" class="close-button" @click="closeDropdown">
+      <v-btn
+        fab
+        small
+        color="primary"
+        class="close-button"
+        @click="closeDropdown"
+      >
         <v-icon>close</v-icon>
       </v-btn>
       <slot></slot>
@@ -30,10 +36,17 @@ export default {
     setTimeout(() => {
       this.$refs.content.style.transform = "none";
     }, 100);
+    document.querySelector("html").style.overflow = "hidden";
+  },
+  destroyed() {
+    document.querySelector("html").removeAttribute("style");
   },
   methods: {
     closeDropdown() {
-      this.$refs.content.style.transform = this.openingAnimationFrom === 'left' ? "translateX(-100%)" : "translateX(100%)";
+      this.$refs.content.style.transform =
+        this.openingAnimationFrom === "left"
+          ? "translateX(-100%)"
+          : "translateX(100%)";
       this.$refs.blur_background.style.animation =
         "noOpacity .4s ease forwards";
       setTimeout(() => {
