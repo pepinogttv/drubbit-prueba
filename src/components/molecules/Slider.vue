@@ -10,7 +10,7 @@
         >navigate_next</v-icon
       >
     </div>
-    <div class="scrolleable" ref="scrolleable" @scroll="scroleameEsta">
+    <div class="scrolleable" ref="scrolleable" @scroll="scrollSlide">
       <div class="scrolleable__slide" v-for="image in images" :key="image">
         <div
           class="scrolleable__slide__center-image d-flex justify-center align-center"
@@ -70,7 +70,7 @@ export default {
     imagenClickeada() {
       this.$emit("imagenClickeada");
     },
-    scroleameEsta(evt) {
+    scrollSlide(evt) {
       this.slider.scrollLeft(evt.target.scrollLeft);
       if (Number.isInteger(this.slider.getCurrentSlide())) {
         this.current_slide = this.slider.getCurrentSlide();
