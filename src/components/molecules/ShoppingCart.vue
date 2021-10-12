@@ -72,7 +72,7 @@
           </tr>
           <tr class="total">
             <td class="total-title">Total</td>
-            <td class="total-amount">$ 6.499</td>
+            <td class="total-amount">$&nbsp;6.499</td>
           </tr>
         </tbody>
       </table>

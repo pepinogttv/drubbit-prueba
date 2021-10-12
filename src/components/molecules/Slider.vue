@@ -49,14 +49,12 @@ export default {
   },
   methods: {
     nextSlide() {
-      this.current_slide >= this.images.length - 1
-        ? (this.current_slide = 0)
-        : this.current_slide++;
+      this.slider.next();
+      this.current_slide = this.slider.getCurrentSlide();
     },
     previousSlide() {
-      this.current_slide <= 0
-        ? (this.current_slide = this.images.length - 1)
-        : this.current_slide--;
+      this.slider.previous();
+      this.current_slide = this.slider.getCurrentSlide();
     },
     initilizeSlider() {
       const scrolleable = this.$refs.scrolleable;
@@ -72,14 +70,20 @@ export default {
     imagenClickeada() {
       this.$emit("imagenClickeada");
     },
-    scroleameEsta() {
-      console.log("Scrholl");
+    scroleameEsta(evt) {
+      this.slider.scrollLeft(evt.target.scrollLeft);
+      if (Number.isInteger(this.slider.getCurrentSlide())) {
+        this.current_slide = this.slider.getCurrentSlide();
+      }
     },
   },
   watch: {
-    current_slide() {
-      this.$emit("cambioElSlideActual", this.current_slide);
-      this.slider.to(this.current_slide);
+    current_slide(to, from) {
+      if (to > from) {
+        this.$emit("nextSlide", Math.round(to));
+      } else if (from > to) {
+        this.$emit("previousSlide", Math.round(from));
+      }
     },
     miniaturaSeleccionada(newValue) {
       this.slider.to(newValue);
@@ -90,7 +94,7 @@ export default {
 
 <style scoped lang="scss">
 .slider.fullScreen {
-  height: 95vh;
+  height: 100vh;
   width: 90vw;
   border: none;
 }

@@ -36,7 +36,8 @@
         <slider
           sliderId="asdasnid"
           @imagenClickeada="toggleModal"
-          @cambioElSlideActual="nuevaMiniaturaSeleccionada"
+          @nextSlide="nuevaMiniaturaSeleccionada"
+          @previousSlide="nuevaMiniaturaSeleccionada"
           :miniaturaSeleccionada="miniaturaSeleccionada"
           :images="images"
         />
@@ -98,7 +99,7 @@ export default {
   .miniatura {
     padding: 15px;
     display: block;
-     border-bottom: 1px solid var(--border-gray);
+    border-bottom: 1px solid var(--border-gray);
     border-right: 1px solid var(--border-gray);
     width: 100%;
     position: relative;

@@ -60,7 +60,7 @@ export default {
 <style lang="scss">
 .dropdown {
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   position: fixed;
   left: 0;
   top: 0;

@@ -46,9 +46,13 @@ export default class Slider {
     this.formatAutoMove = true;
   }
   to(numberSlide) {
-    console.log(this.length)
     this.scroll_state = this.slide_width * numberSlide;
-    console.log('slider.to(): ', this.scroll_state)
     this.moveSmooth();
+  }
+  scrollLeft(scrollLeft) {
+    this.scroll_state = scrollLeft;
+  }
+  getCurrentSlide(){
+    return this.scroll_state / this.slide_width;
   }
 }
